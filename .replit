@@ -43,7 +43,7 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python smart_farming.py"
+args = "python smart_farming.py --input farm_footage.mp4 --output output_video.mp4"
 
 [[workflows.workflow]]
 name = "Create Test Video"
