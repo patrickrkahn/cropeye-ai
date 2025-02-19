@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 from pathlib import Path
+import os
 
 def set_page_config():
     st.set_page_config(
@@ -16,15 +17,15 @@ def main():
     st.title("CropEye")
 
     # Demo Link
-    st.markdown("[🎮 Try the Live Demo](https://{{REPL_SLUG}}.{{REPL_OWNER}}.repl.co)", unsafe_allow_html=True)
+    replit_slug = os.getenv('REPL_SLUG', '')
+    replit_owner = os.getenv('REPL_OWNER', '')
+    demo_url = f"https://{replit_slug}.{replit_owner}.repl.co"
+    st.markdown(f"[🎮 Try the Live Demo]({demo_url})", unsafe_allow_html=True)
 
     st.write("""
     Welcome to CropEye, an open-source project designed to enhance precision agriculture 
     through AI-powered aerial analysis. This system was developed and deployed on a durian farm in the 
     Philippines, leveraging NVIDIA Jetson technology for real-time weed and disease detection.
-
-    Using machine learning and edge computing, our Jetson-equipped drone scans orchards, detecting crop 
-    health issues on the fly, reducing reliance on manual inspections, and improving farm productivity.
     """)
 
     # Challenges Section
