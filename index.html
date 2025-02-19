@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CropEye - Smart Farming Drone AI</title>
+    <title>CropEye AI - Smart Farming Drone Analysis</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -55,39 +55,96 @@
             border-radius: 5px;
             border-left: 4px solid #43a047;
         }
+        .section {
+            margin: 30px 0;
+        }
+        .workflow {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .workflow-steps {
+            font-family: monospace;
+            margin: 20px 0;
+            color: #444;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="hero">
-            <h1>🚁 CropEye</h1>
-            <h2>AI-Powered Drone Footage Analysis for Smart Farming</h2>
+            <h1>🚁 CropEye AI</h1>
+            <h2>Empowering Farmers with AI-Driven Drones</h2>
             <a href="http://0.0.0.0:8501" class="cta-button">Try the Web App</a>
+        </div>
+
+        <div class="section">
+            <p>Welcome to CropEye AI, an open-source project designed to bring precision agriculture to life through AI-powered aerial analysis. We run a durian farm in the Southern Philippines, and we leveraged NVIDIA Jetson, CUDA, and YOLO to detect weeds and crop diseases in real-time—all from a drone. Now, we're excited to share our work with the world!</p>
         </div>
 
         <div class="features">
             <div class="feature-card">
                 <h3>🎯 Real-Time Detection</h3>
-                <p>Process aerial footage in-flight to detect early signs of leaf discoloration, fungal diseases, or weed encroachment.</p>
+                <p>Catch issues early—like weeds, fungal infections, and dry patches—using a Jetson-equipped drone.</p>
             </div>
             <div class="feature-card">
-                <h3>🔍 Edge Computing</h3>
-                <p>Reduce bandwidth and power consumption by running inference directly on NVIDIA Jetson-equipped drones.</p>
+                <h3>👨‍🌾 Reduced Labor</h3>
+                <p>Automated aerial scans cut down on manual inspections, saving both time and resources.</p>
             </div>
             <div class="feature-card">
-                <h3>📊 Instant Analysis</h3>
-                <p>Upload your drone footage and get immediate insights with our web-based analysis tool.</p>
+                <h3>🌱 Sustainable Practices</h3>
+                <p>Targeted treatments help reduce excessive use of chemicals, preserving soil quality and boosting yield.</p>
             </div>
         </div>
 
-        <h2>Why CropEye?</h2>
-        <ul>
-            <li>High-accuracy weed and disease detection</li>
-            <li>Real-time processing capabilities</li>
-            <li>Easy-to-use web interface</li>
-            <li>Built on proven YOLO technology</li>
-            <li>Open-source and customizable</li>
-        </ul>
+        <div class="section">
+            <h2>Key Features</h2>
+            <ul>
+                <li>On-Drone Inference (NVIDIA Jetson): Run computer vision models directly on the drone for immediate results.</li>
+                <li>AI-Powered Weed & Disease Detection: Uses YOLO for quick analysis.</li>
+                <li>Edge Computing: No need for constant internet access—perfect for remote farms.</li>
+                <li>GPS Tagging & Alerts: Automatically mark and track problem areas for targeted interventions.</li>
+                <li>Scalable & Modular: Easily tailor or expand the code for other crops or orchard types.</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h2>How It Works</h2>
+            <div class="workflow-steps">
+                🚁 Drone Flight
+                    |
+                🎥 Live Video Capture
+                    |
+                🧠 AI Inference (Jetson)
+                    |
+                Weed/Disease Alerts
+                    |
+                GPS Tagging & Logging
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Deployment on a Durian Farm</h2>
+            <h3>Location: Southern Philippines</h3>
+            <p>Objectives: Early fungal detection, weed control, and overall orchard health monitoring.</p>
+
+            <h4>Setup:</h4>
+            <ul>
+                <li>Drone with NVIDIA Jetson module</li>
+                <li>YOLO-based detection model</li>
+                <li>Edge inference for real-time bounding boxes</li>
+            </ul>
+
+            <h4>Outcome:</h4>
+            <ul>
+                <li>Reduced Manual Scouting: Quicker, more frequent scans of the orchard.</li>
+                <li>Targeted Chemical Use: Apply fungicides or herbicides exactly where needed.</li>
+                <li>Healthier Trees & Higher Yields: Early detection prevents disease spread and fruit loss.</li>
+            </ul>
+        </div>
+
+        <blockquote style="font-style: italic; margin: 40px 0; padding: 20px; background: #f8f9fa; border-left: 4px solid #43a047;">
+            "We built CropEye AI in our own durian orchard to detect problems faster and reduce manual labor. Now, we can't wait to see how other farms benefit from it, too!"
+        </blockquote>
 
         <div style="text-align: center; margin: 40px 0;">
             <h3>Ready to analyze your drone footage?</h3>
