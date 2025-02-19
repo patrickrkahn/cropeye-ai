@@ -16,7 +16,7 @@ def main():
     st.title("CropEye")
 
     # Demo Link
-    st.markdown("[🎮 Try the Live Demo](https://cropeye.demo.com)", unsafe_allow_html=True)
+    st.markdown("[🎮 Try the Live Demo](https://{{REPL_SLUG}}.{{REPL_OWNER}}.repl.co)", unsafe_allow_html=True)
 
     st.write("""
     Welcome to CropEye, an open-source project designed to enhance precision agriculture 
