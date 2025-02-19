@@ -1,0 +1,114 @@
+Smart Farming Drone AI
+
+Revolutionizing Durian Farming with AI-Powered Drones
+
+Welcome to Smart Farming Drone AI, an open-source project designed to enhance precision agriculture through AI-powered aerial analysis. This system was developed and deployed on a durian farm in the Philippines, leveraging NVIDIA Jetson technology for real-time weed and disease detection.
+
+Using machine learning and edge computing, our Jetson-equipped drone scans orchards, detecting crop health issues on the fly, reducing reliance on manual inspections, and improving farm productivity.
+
+Why Smart Farming for Durian Orchards?
+
+🌳 Durian Farming Challenges
+
+Dense Canopy Cover – Traditional inspections are slow and inefficient.
+
+Tropical Climate Risks – High humidity accelerates fungal infections and pest spread.
+
+Precision Agriculture Demand – Targeted interventions reduce costs and increase fruit quality.
+
+🚁 Our AI-Powered Solution
+
+✅ Onboard Jetson AI Inference – Processes images in real-time directly on the drone.✅ Weed & Disease Detection – Identifies dry patches, fungal infections, and invasive weeds.✅ Edge Computing with Jetson – No internet required, perfect for remote farms.✅ Live Alerts & GPS Tagging – Pinpoints affected areas for quick intervention.✅ Customizable AI Models – Supports YOLOv8, Faster R-CNN, and segmentation models.✅ Scalable Open-Source Platform – Fork, customize, and deploy worldwide.
+
+How It Works
+
+📍 1. Drone Deployment
+
+A Jetson-powered drone captures aerial footage over the farm.
+
+🔍 2. AI-Based Detection
+
+Onboard NVIDIA Jetson processes images in real-time, detecting weeds, diseases, and soil conditions.
+
+📊 3. Real-Time Insights & GPS Tagging
+
+Results are overlaid on the video feed and flagged with GPS coordinates.
+
+💡 4. Actionable Data for Farmers
+
+Immediate alerts help optimize interventions, from fungicide application to weed removal.
+
+            🚁 Drone Flight
+                |
+        🎥 Live Video Capture
+                |
+        🎯 AI Inference (Jetson)
+                |
+   🖼️ Bounding Boxes on Live Feed
+                |
+  📍 GPS Tagging & Farmer Alerts
+                |
+    📊 Data Storage & Review
+
+Technology Stack
+
+🔹 NVIDIA Jetson (Edge AI Processing) – Runs AI models directly on the drone.🔹 CUDA & TensorRT – Optimizes inference speed and efficiency.🔹 DeepStream SDK (Optional) – Multi-stream analytics for larger farm operations.🔹 PyTorch + YOLOv8 – Object detection models for identifying crop health issues.
+
+Case Study: Deployment in a Durian Orchard
+
+📍 Location: Durian Farm, Philippines
+
+🔎 Objective: Detect fungal diseases and weed encroachment
+
+🛠️ Setup:
+
+Drone equipped with NVIDIA Jetson AGX Orin.
+
+YOLOv8 trained on durian-specific datasets.
+
+Edge inference deployed, reducing reliance on cloud computing.
+
+🚀 Results:
+
+✅ Faster Inspections – Reduced manual scouting time by 75%.✅ Targeted Interventions – Less pesticide use, saving costs.✅ Increased Yield – Early disease detection prevented fruit loss.
+
+"This system helped us detect leaf infections before they spread—saving our orchard thousands in potential losses." – Durian Farmer, Philippines
+
+Get Started
+
+1️⃣ Clone the Repository
+
+ git clone https://github.com/patrickrkahn/smart-farming-drone-ai.git
+ cd smart-farming-drone-ai
+
+2️⃣ Install Dependencies
+
+pip install -r requirements.txt
+
+Includes PyTorch, OpenCV, YOLO dependencies.
+
+For Jetson, install Jetson-optimized versions.
+
+3️⃣ Run the Detection Demo
+
+Streamlit Web App (for images/videos):
+
+streamlit run app.py
+
+Command-Line Processing (for recorded footage):
+
+python smart_farming.py --source sample_farm_video.mp4
+
+4️⃣ Train a Custom Model
+
+yolo train data=durian_farm.yaml model=yolov8n.pt epochs=50
+
+5️⃣ Optimize for Jetson
+
+yolo export model=best.pt format=tensorrt
+
+Join the Open-Source Community!
+
+🔗 Fork the Repository – Modify and improve the system.🔗 Submit a Pull Request – Contribute to the project.🔗 Report Issues & Discuss – Join our GitHub discussions.
+
+📌 GitHub Issues & Discussions: Submit an Issue
