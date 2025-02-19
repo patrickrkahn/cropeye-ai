@@ -27,6 +27,10 @@ args = "Smart Farming Demo VNC"
 task = "workflow.run"
 args = "Smart Farming Streamlit"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Static Landing Page"
+
 [[workflows.workflow]]
 name = "Smart Farming Demo"
 author = "agent"
@@ -84,8 +88,27 @@ task = "shell.exec"
 args = "streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port 8501"
 waitForPort = 8501
 
+[[workflows.workflow]]
+name = "Static Landing Page"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 -m http.server 3000 --directory . --bind 0.0.0.0"
+waitForPort = 3000
+
 [deployment]
 run = ["sh", "-c", "DISPLAY=:0 python smart_farming.py"]
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
 
 [[ports]]
 localPort = 8501
