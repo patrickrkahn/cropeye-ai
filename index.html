@@ -16,15 +16,69 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        pre {
-            white-space: pre-wrap;
-            font-family: inherit;
-            margin: 0;
+        h1, h2, h3, h4 {
+            color: #1b5e20;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #2e7d32;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 0.5em;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            color: #388e3c;
+            margin-bottom: 2em;
+        }
+        .section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #43a047;
+        }
+        .workflow {
+            font-family: monospace;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+            white-space: pre;
+            line-height: 1.5;
+            color: #444;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            border-left: 4px solid #43a047;
         }
         .cta-button {
             display: inline-block;
@@ -40,49 +94,73 @@
         .cta-button:hover {
             background-color: #2e7d32;
         }
+        .quote {
+            font-style: italic;
+            margin: 40px 0;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            border-left: 4px solid #43a047;
+            color: #1b5e20;
+        }
+        .centered {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <pre>
-CropEye AI
+        <h1>CropEye AI</h1>
+        <div class="subtitle">Empowering Farmers with AI-Driven Drones</div>
 
-Empowering Farmers with AI-Driven Drones
+        <div class="section">
+            <p>Welcome to CropEye AI, an open-source project designed to bring precision agriculture to life through AI-powered aerial analysis. We run a durian farm in the Southern Philippines, and we leveraged NVIDIA Jetson, CUDA, and YOLO to detect weeds and crop diseases in real-time—all from a drone. Now, we're excited to share our work with the world!</p>
+        </div>
 
-Welcome to CropEye AI, an open-source project designed to bring precision agriculture to life through AI-powered aerial analysis. We run a durian farm in the Southern Philippines, and we leveraged NVIDIA Jetson, CUDA, and YOLO to detect weeds and crop diseases in real-time—all from a drone. Now, we're excited to share our work with the world!
+        <h2>Why CropEye?</h2>
+        <div class="features">
+            <div class="feature">
+                <p>Real-Time Detection: Catch issues early—like weeds, fungal infections, and dry patches—using a Jetson-equipped drone.</p>
+            </div>
+            <div class="feature">
+                <p>Reduced Labor: Automated aerial scans cut down on manual inspections, saving both time and resources.</p>
+            </div>
+            <div class="feature">
+                <p>Sustainable Practices: Targeted treatments help reduce excessive use of chemicals, preserving soil quality and boosting yield.</p>
+            </div>
+            <div class="feature">
+                <p>Open-Source Collaboration: Adapt and improve the system to suit different farms and crops.</p>
+            </div>
+        </div>
 
-Why CropEye?
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature">
+                <p>On-Drone Inference (NVIDIA Jetson): Run computer vision models directly on the drone for immediate results.</p>
+            </div>
+            <div class="feature">
+                <p>AI-Powered Weed & Disease Detection: Uses YOLO (or your choice of object detection/segmentation frameworks) for quick analysis.</p>
+            </div>
+            <div class="feature">
+                <p>Edge Computing: No need for constant internet access—perfect for remote farms.</p>
+            </div>
+            <div class="feature">
+                <p>GPS Tagging & Alerts: Automatically mark and track problem areas for targeted interventions.</p>
+            </div>
+            <div class="feature">
+                <p>Scalable & Modular: Easily tailor or expand the code for other crops or orchard types.</p>
+            </div>
+        </div>
 
-Real-Time Detection: Catch issues early—like weeds, fungal infections, and dry patches—using a Jetson-equipped drone.
+        <h2>How It Works</h2>
+        <div class="section">
+            <p>Drone Flight: Launch the CropEye AI drone over your orchard.</p>
+            <p>Real-Time Analysis: The drone's NVIDIA Jetson processes camera feeds instantly, detecting weeds, disease symptoms, or stressed soil.</p>
+            <p>Alerts & Overlays: Results are overlaid onto the live feed with bounding boxes, plus GPS coordinates for precise targeting.</p>
+            <p>Review & Action: Farm staff can immediately review flagged areas and plan interventions—spraying fungicide, removing weeds, etc.</p>
+        </div>
 
-Reduced Labor: Automated aerial scans cut down on manual inspections, saving both time and resources.
-
-Sustainable Practices: Targeted treatments help reduce excessive use of chemicals, preserving soil quality and boosting yield.
-
-Open-Source Collaboration: Adapt and improve the system to suit different farms and crops.
-
-Key Features
-
-On-Drone Inference (NVIDIA Jetson): Run computer vision models directly on the drone for immediate results.
-
-AI-Powered Weed & Disease Detection: Uses YOLO (or your choice of object detection/segmentation frameworks) for quick analysis.
-
-Edge Computing: No need for constant internet access—perfect for remote farms.
-
-GPS Tagging & Alerts: Automatically mark and track problem areas for targeted interventions.
-
-Scalable & Modular: Easily tailor or expand the code for other crops or orchard types.
-
-How It Works
-
-Drone Flight: Launch the CropEye AI drone over your orchard.
-
-Real-Time Analysis: The drone's NVIDIA Jetson processes camera feeds instantly, detecting weeds, disease symptoms, or stressed soil.
-
-Alerts & Overlays: Results are overlaid onto the live feed with bounding boxes, plus GPS coordinates for precise targeting.
-
-Review & Action: Farm staff can immediately review flagged areas and plan interventions—spraying fungicide, removing weeds, etc.
-
+        <div class="workflow">
       🚁 Drone Flight
           |
    🎥 Live Video Capture
@@ -91,72 +169,68 @@ Review & Action: Farm staff can immediately review flagged areas and plan interv
           |
     Weed/Disease Alerts
           |
-  GPS Tagging & Logging
+  GPS Tagging & Logging</div>
 
-Deployment on a Durian Farm
+        <h2>Deployment on a Durian Farm</h2>
+        <div class="section">
+            <h3>Location: Southern Philippines</h3>
+            <p>Objectives: Early fungal detection, weed control, and overall orchard health monitoring.</p>
 
-Location: Southern Philippines
+            <h3>Setup:</h3>
+            <ul>
+                <li>Drone with NVIDIA Jetson module</li>
+                <li>YOLO-based detection model</li>
+                <li>Edge inference for real-time bounding boxes</li>
+            </ul>
 
-Objectives: Early fungal detection, weed control, and overall orchard health monitoring.
+            <h3>Outcome:</h3>
+            <ul>
+                <li>Reduced Manual Scouting: Quicker, more frequent scans of the orchard.</li>
+                <li>Targeted Chemical Use: Apply fungicides or herbicides exactly where needed.</li>
+                <li>Healthier Trees & Higher Yields: Early detection prevents disease spread and fruit loss.</li>
+            </ul>
+        </div>
 
-Setup:
-
-Drone with NVIDIA Jetson module
-
-YOLO-based detection model
-
-Edge inference for real-time bounding boxes
-
-Outcome:
-
-Reduced Manual Scouting: Quicker, more frequent scans of the orchard.
-
-Targeted Chemical Use: Apply fungicides or herbicides exactly where needed.
-
-Healthier Trees & Higher Yields: Early detection prevents disease spread and fruit loss.
-
-Quick Start
-
-Clone & Install:
-
-git clone https://github.com/patrickrkahn/smart-farming-drone-ai.git
+        <h2>Quick Start</h2>
+        <div class="section">
+            <h3>Clone & Install:</h3>
+            <div class="code-block">git clone https://github.com/patrickrkahn/smart-farming-drone-ai.git
 cd smart-farming-drone-ai
-pip install -r requirements.txt
+pip install -r requirements.txt</div>
 
-Run Demo:
+            <h3>Run Demo:</h3>
+            <div class="code-block">streamlit run app.py</div>
 
-Streamlit:
+            <h3>CLI:</h3>
+            <div class="code-block">python smart_farming.py --source sample_farm_video.mp4</div>
 
-streamlit run app.py
+            <h3>Train a Custom Model:</h3>
+            <div class="code-block">yolo train data=durian_farm.yaml model=yolov8n.pt epochs=50</div>
 
-CLI:
+            <h3>Optimize for Jetson:</h3>
+            <div class="code-block">yolo export model=best.pt format=tensorrt</div>
+        </div>
 
-python smart_farming.py --source sample_farm_video.mp4
+        <h2>Contribute & Expand</h2>
+        <div class="section">
+            <p>We invite developers, farmers, and researchers worldwide to join:</p>
+            <ul>
+                <li>Fork the Repo: Add features or improvements.</li>
+                <li>Open Issues & PRs: Collaborate on problem-solving.</li>
+                <li>Share Your Results: Tag us with #SmartFarmingAI and mention @NVIDIAGTC or @NVIDIADeveloper on social media.</li>
+            </ul>
+        </div>
 
-Train a Custom Model:
+        <h2>License</h2>
+        <div class="section">
+            <p>CropEye AI is released under the MIT License, allowing easy use and adaptation. Check the LICENSE file for details.</p>
+        </div>
 
-yolo train data=durian_farm.yaml model=yolov8n.pt epochs=50
+        <div class="quote">
+            "We built CropEye AI in our own durian orchard to detect problems faster and reduce manual labor. Now, we can't wait to see how other farms benefit from it, too!"
+        </div>
 
-Optimize for Jetson:
-
-yolo export model=best.pt format=tensorrt
-
-Contribute & Expand
-
-We invite developers, farmers, and researchers worldwide to join:
-
-Fork the Repo: Add features or improvements.
-
-Open Issues & PRs: Collaborate on problem-solving.
-
-Share Your Results: Tag us with #SmartFarmingAI and mention @NVIDIAGTC or @NVIDIADeveloper on social media.
-
-License
-
-CropEye AI is released under the MIT License, allowing easy use and adaptation. Check the LICENSE file for details.
-
-"We built CropEye AI in our own durian orchard to detect problems faster and reduce manual labor. Now, we can't wait to see how other farms benefit from it, too!"</pre>
-        <div style="text-align: center; margin: 20px 0;">
+        <div class="centered">
             <a href="http://0.0.0.0:8501" class="cta-button">Try CropEye AI Now</a>
         </div>
     </div>
