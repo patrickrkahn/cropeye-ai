@@ -29,8 +29,8 @@ def main():
             with st.spinner('Processing video...'):
                 output_path = "streamlit_output.mp4"
                 success = st.session_state.detector.process_video(video_path, output_path)
-                
-                if success:
+
+                if success and os.path.exists(output_path):
                     st.session_state.processed_video = output_path
                     st.success("Video processed successfully!")
                 else:
@@ -39,7 +39,13 @@ def main():
         # Display processed video if available
         if st.session_state.processed_video and os.path.exists(st.session_state.processed_video):
             st.subheader("Processed Video")
-            st.video(st.session_state.processed_video)
+            video_file = open(st.session_state.processed_video, 'rb')
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+            video_file.close()
+
+        # Display upload info
+        st.info(f"Uploaded video: {uploaded_file.name}")
 
         # Cleanup temporary file
         Path(video_path).unlink(missing_ok=True)
