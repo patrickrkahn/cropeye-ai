@@ -23,6 +23,10 @@ args = "Create Test Video"
 task = "workflow.run"
 args = "Smart Farming Demo VNC"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Smart Farming Streamlit"
+
 [[workflows.workflow]]
 name = "Smart Farming Demo"
 author = "agent"
@@ -65,5 +69,24 @@ task = "packager.installForAll"
 task = "shell.exec"
 args = "DISPLAY=:0 python smart_farming.py"
 
+[[workflows.workflow]]
+name = "Smart Farming Streamlit"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port 8501"
+waitForPort = 8501
+
 [deployment]
 run = ["sh", "-c", "DISPLAY=:0 python smart_farming.py"]
+
+[[ports]]
+localPort = 8501
+externalPort = 80
