@@ -11,21 +11,16 @@ class SmartFarmingDrone:
     def __init__(self, model_name="yolov8n.pt", confidence_threshold=0.5, display_output=True):
         """
         Initialize the Smart Farming Drone analysis system
-
-        Args:
-            model_name (str): Name or path of the YOLO model to use
-            confidence_threshold (float): Minimum confidence for detections
-            display_output (bool): Whether to display frames in a window
         """
         self.confidence_threshold = confidence_threshold
         self.display_output = display_output
 
-        # Set display environment variable for Replit
+        # Configure display for VNC
         if self.display_output:
-            os.environ['DISPLAY'] = ':1'
+            os.environ['DISPLAY'] = ':0'
+            os.environ['OPENCV_VIDEOIO_PRIORITY_MSMF'] = '0'
 
         try:
-            # Load the YOLO model
             self.model = YOLO(model_name)
             print(f"Model {model_name} loaded successfully")
             print(f"Using device: {self.model.device}")
@@ -52,13 +47,17 @@ class SmartFarmingDrone:
                 x1, y1, x2, y2 = map(int, [x1, y1, x2, y2])
                 class_name = results.names[int(class_id)]
 
-                # Draw bounding box
-                cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                # Draw bounding box with thicker lines for better visibility
+                cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 3)
 
-                # Add label
+                # Add label with better visibility
                 label = f"{class_name}: {score:.2f}"
+                # Draw label background
+                label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)[0]
+                cv2.rectangle(annotated_frame, (x1, y1 - label_size[1] - 10), (x1 + label_size[0], y1), (0, 255, 0), -1)
+                # Draw label text
                 cv2.putText(annotated_frame, label, (x1, y1 - 10),
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
 
             if detections_in_frame > 0:
                 print(f"Found {detections_in_frame} objects in current frame")
@@ -95,6 +94,7 @@ class SmartFarmingDrone:
             if self.display_output:
                 try:
                     cv2.namedWindow("Smart Farming Detection", cv2.WINDOW_AUTOSIZE)
+                    cv2.resizeWindow("Smart Farming Detection", frame_width, frame_height)
                     print("Display window created successfully")
                 except Exception as e:
                     print(f"Warning: Could not create display window: {str(e)}")
@@ -113,7 +113,9 @@ class SmartFarmingDrone:
                     if self.display_output:
                         try:
                             cv2.imshow("Smart Farming Detection", processed_frame)
-                            if cv2.waitKey(1) & 0xFF == ord('q'):
+                            key = cv2.waitKey(1) & 0xFF
+                            if key == ord('q'):
+                                print("Q pressed, stopping video processing")
                                 break
                         except Exception as e:
                             print(f"Warning: Could not display frame: {str(e)}")
@@ -122,11 +124,11 @@ class SmartFarmingDrone:
                 pbar.update(1)
 
             pbar.close()
-            if self.display_output:
-                cv2.destroyAllWindows()
-
             print(f"\nProcessed {total_frames} frames")
             print(f"Saved processed video to: {output_path}")
+
+            if self.display_output:
+                cv2.destroyAllWindows()
             return True
 
         except Exception as e:
