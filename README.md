@@ -1,5 +1,5 @@
 pip install -r requirements.txt
-   ```
+```
 
 2. Place your drone footage video file in the project directory as `farm_footage.mp4`
 
