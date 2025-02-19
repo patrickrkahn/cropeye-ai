@@ -1,0 +1,40 @@
+Build a Python project called "Smart Farming Drone Imaging" that performs basic weed or unhealthy crop detection in drone footage. Here's what I want:
+
+1. **Project Structure:**
+   - A `requirements.txt` listing any needed libraries (e.g., opencv-python, torch, torchvision, ultralytics for YOLO).
+   - A main Python script (`smart_farming.py`) that:
+     - Loads a pretrained YOLO model (e.g., YOLOv5/YOLOv8).
+     - Reads a sample video file named `farm_footage.mp4` from the project folder.
+     - Runs inference frame by frame to detect weeds or unhealthy crops (simulate by detecting 'person' or any YOLO default class to show bounding boxes).
+     - Draws bounding boxes on each frame.
+     - Displays the annotated video live in a window or saves an annotated version to disk.
+
+2. **Code Details:**
+   - In `smart_farming.py`, import necessary libraries (`cv2`, `torch`, `ultralytics` or similar).
+   - Provide a simple function `process_frame(frame)` that takes a single video frame, runs YOLO inference, and returns the frame with bounding boxes drawn.
+   - In the main loop:
+     ```
+     cap = cv2.VideoCapture('farm_footage.mp4')
+     while cap.isOpened():
+         ret, frame = cap.read()
+         if not ret:
+             break
+         processed_frame = process_frame(frame)
+         cv2.imshow("Smart Farming Drone Demo", processed_frame)
+         if cv2.waitKey(1) & 0xFF == ord('q'):
+             break
+     cap.release()
+     cv2.destroyAllWindows()
+     ```
+   - Explain in comments how to replace the default YOLO classes with farmland-specific classes if we had a custom-trained model.
+
+3. **Quick Instructions (README.md):**
+   - How to install dependencies (`pip install -r requirements.txt`).
+   - How to run the script (`python smart_farming.py`).
+   - Mention that for a real farming scenario, we would train YOLO on a labeled dataset of weeds/crop diseases, but for this prototype, we’re just using the default model to demonstrate bounding-box detection.
+
+4. **Optional Enhancements:**
+   - Briefly comment in the code how to integrate a custom dataset or switch from YOLO to another model.
+   - Mention how we could optimize with TensorRT in a future step.
+
+Please generate all the necessary files (requirements.txt, README.md, smart_farming.py) with the code that follows these specs. 
