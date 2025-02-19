@@ -1,0 +1,121 @@
+Smart Farming Drone Imaging
+An open-source project to detect weeds, dry patches, or crop diseases from aerial drone footage using NVIDIA GPU acceleration.
+Special Focus: Durian Farm Deployment in the Philippines with NVIDIA Jetson
+
+Overview
+Durian farming in the Philippines has unique challenges—large orchard tracts, dense canopies, and a tropical climate ripe for fungal diseases and pests. Smart Farming Drone Imaging harnesses the power of computer vision to pinpoint issues in real-time and assist local growers in maximizing yield and fruit quality.
+
+By leveraging NVIDIA GPU technologies—particularly NVIDIA Jetson devices for on-drone edge processing—this project aims to minimize costly delays in identifying problem areas. Our approach is open-source, enabling farmers, researchers, and developers to collaborate, adapt it for local conditions, and continually improve model performance.
+
+Key Features
+Real-Time Durian Orchard Scans: Process aerial footage in-flight to detect early signs of leaf discoloration, fungal diseases, or weed encroachment.
+Edge Deployment with Jetson: Reduce bandwidth and power consumption by running inference directly on an NVIDIA Jetson-equipped drone.
+Modular Architecture: Swap YOLO, Faster R-CNN, or segmentation models based on the specific farming need.
+Scalable & Extensible: Integrate additional sensors (e.g., thermal, multispectral) to further refine detection.
+Open-Source Collaboration: Fork, modify, and share improvements for broader adoption in Southeast Asian agriculture and beyond.
+Why Durian Farms in the Philippines?
+High-Value Crop: Durians are highly prized in local and international markets. Early detection of diseases or pests can significantly increase yield and profit.
+Tropical Climate Challenges: Warm, humid conditions promote rapid disease spread. Quick, targeted interventions are critical.
+Hard-to-Reach Canopies: Durian trees can grow tall and dense, making ground inspections difficult. Drones offer a practical overhead view.
+Jetson Edge Inference: Many durian farms lack stable internet connections. Running GPU-accelerated models on the drone or near the field avoids cloud dependencies.
+NVIDIA Technology Stack
+NVIDIA Jetson (Edge Deployment)
+A powerful, compact computing platform ideal for in-field AI inference, reducing latency and reliance on internet connectivity.
+CUDA (Compute Unified Device Architecture)
+Parallel computing on NVIDIA GPUs accelerates both training (in the lab) and inference (in the field).
+TensorRT (Optional)
+Optimize your trained models for the Jetson environment, achieving higher frames-per-second with lower latency.
+DeepStream (Optional for Multi-Stream Analytics)
+Particularly useful if you have multiple drones or camera feeds for larger orchard operations.
+Architecture at a Glance
+pgsql
+Copy
+Edit
+       Drone Footage (Durian Orchard)
+                +
+        [ NVIDIA Jetson ]
+                |
+                v
+    +----------------------+
+    |  On-Device Inference|
+    +----------------------+
+                |
+                v
+       [ Real-Time Alerts ] 
+                |
+                v
+  [ Local Storage / User Dashboard ]
+Drone Flight: An autonomous or piloted drone covers the orchard.
+NVIDIA Jetson: Receives the video feed, runs object detection or segmentation to identify weeds, diseases, or dry patches.
+Alerts/Output: Live bounding boxes or segmented areas indicate where urgent action is needed (e.g., spraying fungicide).
+Local Dashboard: Results are stored locally or relayed to a farmer’s mobile device for immediate insight, even without internet coverage.
+Getting Started
+Clone the Repository
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/smart-farming-drone-imaging.git
+cd smart-farming-drone-imaging
+Install Dependencies
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Default includes torch, torchvision, opencv-python, and ultralytics.
+For Jetson devices, install the Jetson-compatible versions of PyTorch and OpenCV, and optionally TensorRT if you want further optimization.
+Run a Demo (Locally or on Jetson)
+
+Streamlit Demo (if you have a GUI environment or if you’re on a laptop/desktop):
+bash
+Copy
+Edit
+streamlit run app.py
+Command-Line:
+bash
+Copy
+Edit
+python smart_farming.py --source mock_farm_video.mp4
+On Jetson, ensure you’ve installed the correct wheel files for PyTorch, TorchVision, etc., before running.
+Train or Fine-Tune
+
+Create a dataset of durian orchard images (label weeds, disease-affected leaves, or other anomalies).
+Fine-tune YOLO or a chosen model on your custom dataset:
+bash
+Copy
+Edit
+yolo train data=durian_farm.yaml model=yolov8n.pt epochs=50
+Convert or optimize for TensorRT:
+bash
+Copy
+Edit
+yolo export model=best.pt format=tensorrt
+Example Workflow on a Philippine Durian Farm
+Drone Pre-Flight: Ensure Jetson is powered, the detection model is loaded, and the battery is fully charged.
+Aerial Survey: Fly over the orchard in a grid pattern, capturing top-down views of durian trees.
+On-the-Fly Detection: NVIDIA Jetson processes each frame. If a suspicious patch is detected (e.g., leaf discoloration or a cluster of weeds), the location is flagged via GPS coordinates.
+Immediate Action: Farmers or farmworkers can be alerted in near real-time, applying fungicide to affected areas or removing weeds quickly.
+Data Review: After flight, a local or cloud-based dashboard aggregates results, building a historical record of orchard health over time.
+Contributing
+We invite developers, researchers, and farmers to collaborate:
+
+Fork and Create a Branch for your proposed changes.
+Submit a Pull Request detailing your improvements or bug fixes.
+Engage in Issues and Discussions to shape future features—like integrating thermal or multispectral sensors, improving label datasets, etc.
+Refer to CONTRIBUTING.md for further details and guidelines.
+
+License
+This project is released under the MIT License, allowing anyone to use, modify, and distribute. Refer to the LICENSE file for specifics.
+
+Future Enhancements
+Disease Segmentation: Move beyond bounding boxes to precisely delineate infected leaf regions for more accurate fungicide targeting.
+Multi-Drone Coordination: If you have several Jetson-powered drones, share flight data in real-time for larger orchard coverage.
+Offline Data Analysis: Sync orchard health metrics to a local server or cloud when internet is available, enabling advanced analytics (e.g., yield prediction).
+Integration with Other Sensors: Merge data from infrared, thermal, or hyperspectral cameras to detect stress levels and water deficiencies.
+Community & Support
+GitHub Discussions/Issues: Open an Issue or join Discussions for ideas, questions, and troubleshooting.
+Social Media: Share your farm trials, custom solutions, and results with #SmartFarmingAI, and tag @NVIDIAGTC or @NVIDIADeveloper if you’re showcasing the NVIDIA Jetson integration.
+Empowering Durian Farmers: By detecting problems early, farmers in the Philippines can improve fruit quality, reduce chemical usage, and boost overall orchard profitability — all while keeping track of their orchard’s health in a visual, data-driven way.
+
+Sustainability Meets Technology—Join us in transforming durian farming with NVIDIA Jetson and open-source AI!

@@ -6,28 +6,33 @@ from smart_farming import SmartFarmingDrone
 
 def show_landing_page():
     st.title("Smart Farming Drone Imaging")
-    st.subheader("An open-source project for agricultural drone footage analysis")
+    st.subheader("An open-source project to detect weeds, dry patches, or crop diseases from aerial drone footage using NVIDIA GPU acceleration.")
 
     # Overview
     st.markdown("""
     ### Overview
-    Smart Farming Drone Imaging harnesses the power of computer vision to analyze aerial drone footage
-    of agricultural land, helping farmers identify issues in real-time and maximize yield. Our focus is
-    on providing an open-source solution that enables farmers, researchers, and developers to collaborate
-    and improve agricultural monitoring.
+    Durian farming in the Philippines has unique challenges—large orchard tracts, dense canopies, 
+    and a tropical climate ripe for fungal diseases and pests. Smart Farming Drone Imaging harnesses 
+    the power of computer vision to pinpoint issues in real-time and assist local growers in maximizing 
+    yield and fruit quality.
+
+    By leveraging NVIDIA GPU technologies—particularly NVIDIA Jetson devices for on-drone edge processing—this 
+    project aims to minimize costly delays in identifying problem areas. Our approach is open-source, enabling 
+    farmers, researchers, and developers to collaborate, adapt it for local conditions, and continually 
+    improve model performance.
     """)
 
     # Key Features
     st.markdown("""
     ### Key Features
-    - **Real-Time Analysis**: Process aerial footage to detect issues like:
-        - Crop diseases
-        - Weed infestations
-        - Dry patches
-        - Unhealthy vegetation
-    - **GPU Acceleration**: Leveraging NVIDIA technology for faster processing
-    - **Open Source**: Collaborate, modify, and improve the system
-    - **Modular Design**: Easy to extend with new detection models
+    - **Real-Time Durian Orchard Scans**: Process aerial footage in-flight to detect early signs of leaf 
+      discoloration, fungal diseases, or weed encroachment.
+    - **Edge Deployment with Jetson**: Reduce bandwidth and power consumption by running inference directly 
+      on an NVIDIA Jetson-equipped drone.
+    - **Modular Architecture**: Swap YOLO, Faster R-CNN, or segmentation models based on the specific farming need.
+    - **Scalable & Extensible**: Integrate additional sensors (e.g., thermal, multispectral) to further refine detection.
+    - **Open-Source Collaboration**: Fork, modify, and share improvements for broader adoption in Southeast Asian 
+      agriculture and beyond.
     """)
 
     # Try Demo Button
@@ -37,28 +42,37 @@ def show_landing_page():
 
     # Technology Stack
     st.markdown("""
-    ### Technology Stack
-    - **Computer Vision**: OpenCV, YOLO object detection
-    - **Deep Learning**: PyTorch, Ultralytics YOLOv8
-    - **Interface**: Streamlit web application
+    ### NVIDIA Technology Stack
+    - **NVIDIA Jetson (Edge Deployment)**: A powerful, compact computing platform ideal for in-field AI inference, 
+      reducing latency and reliance on internet connectivity.
+    - **CUDA (Compute Unified Device Architecture)**: Parallel computing on NVIDIA GPUs accelerates both training 
+      (in the lab) and inference (in the field).
+    - **TensorRT (Optional)**: Optimize your trained models for the Jetson environment, achieving higher 
+      frames-per-second with lower latency.
+    - **DeepStream (Optional for Multi-Stream Analytics)**: Particularly useful if you have multiple drones or 
+      camera feeds for larger orchard operations.
     """)
 
     # Future Enhancements
     st.markdown("""
     ### Future Enhancements
-    - Custom model training for crop-specific detection
-    - TensorRT optimization for improved performance
-    - Support for multiple video formats
-    - Advanced visualization options
+    - **Disease Segmentation**: Move beyond bounding boxes to precisely delineate infected leaf regions for 
+      more accurate fungicide targeting.
+    - **Multi-Drone Coordination**: If you have several Jetson-powered drones, share flight data in real-time 
+      for larger orchard coverage.
+    - **Offline Data Analysis**: Sync orchard health metrics to a local server or cloud when internet is 
+      available, enabling advanced analytics.
+    - **Integration with Other Sensors**: Merge data from infrared, thermal, or hyperspectral cameras to 
+      detect stress levels and water deficiencies.
     """)
 
     # Footer with links
     st.markdown("""
     ---
-    ### Get Involved
-    - [View Source Code](https://github.com/yourusername/smart-farming-drone-imaging)
-    - [Report Issues](https://github.com/yourusername/smart-farming-drone-imaging/issues)
-    - [Documentation](https://github.com/yourusername/smart-farming-drone-imaging/wiki)
+    ### Community & Support
+    - [GitHub Discussions/Issues](https://github.com/yourusername/smart-farming-drone-imaging/issues)
+    - [Share your farm trials](https://github.com/yourusername/smart-farming-drone-imaging/discussions)
+    - Tag us with #SmartFarmingAI
     """)
 
 def show_demo_page():
@@ -117,7 +131,7 @@ def show_demo_page():
 def main():
     st.set_page_config(
         page_title="Smart Farming Drone Imaging",
-        page_icon="🚀",
+        page_icon="🌾",
         layout="wide"
     )
 
