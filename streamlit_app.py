@@ -4,7 +4,7 @@ from pathlib import Path
 
 def set_page_config():
     st.set_page_config(
-        page_title="Smart Farming Drone AI",
+        page_title="CropEye",
         page_icon="🚁",
         layout="wide"
     )
@@ -13,11 +13,13 @@ def main():
     set_page_config()
 
     # Title and Introduction
-    st.title("Smart Farming Drone AI")
-    st.subheader("Revolutionizing Durian Farming with AI-Powered Drones")
+    st.title("CropEye")
+
+    # Demo Link
+    st.markdown("[🎮 Try the Live Demo](https://cropeye.demo.com)", unsafe_allow_html=True)
 
     st.write("""
-    Welcome to Smart Farming Drone AI, an open-source project designed to enhance precision agriculture 
+    Welcome to CropEye, an open-source project designed to enhance precision agriculture 
     through AI-powered aerial analysis. This system was developed and deployed on a durian farm in the 
     Philippines, leveraging NVIDIA Jetson technology for real-time weed and disease detection.
 
@@ -113,7 +115,6 @@ def main():
     for result in results:
         st.markdown(result)
 
-    # Replace previous problematic blockquote with corrected version
     st.markdown('> *"This system helped us detect leaf infections before they spread—saving our orchard thousands in potential losses."*\n> – Durian Farmer, Philippines')
 
     # Get Started Section
@@ -149,7 +150,7 @@ cd smart-farming-drone-ai""", language="bash")
     🔗 Submit a Pull Request – Contribute to the project.  
     🔗 Report Issues & Discuss – Join our GitHub discussions.
 
-    📌 [GitHub Issues & Discussions: Submit an Issue](https://github.com/yourusername/smart-farming-drone-imaging/issues)
+    📌 [GitHub Issues & Discussions: Submit an Issue](https://github.com/patrickrkahn/smart-farming-drone-ai/issues)
     """)
 
 if __name__ == "__main__":
