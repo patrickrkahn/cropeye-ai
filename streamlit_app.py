@@ -79,7 +79,6 @@ def main():
     """
     st.code(architecture, language=None)
 
-
     # Technology Stack
     st.header("Technology Stack")
     tech_stack = [
@@ -114,7 +113,8 @@ def main():
     for result in results:
         st.markdown(result)
 
-    st.quote(""""This system helped us detect leaf infections before they spread—saving our orchard thousands in potential losses." – Durian Farmer, Philippines""")
+    # Replace previous problematic blockquote with corrected version
+    st.markdown('> *"This system helped us detect leaf infections before they spread—saving our orchard thousands in potential losses."*\n> – Durian Farmer, Philippines')
 
     # Get Started Section
     st.header("Get Started")
