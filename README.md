@@ -1,4 +1,4 @@
-git clone https://github.com/yourusername/cropeye-ai.git
+git clone https://github.com/patrickrkahn/cropeye-ai
 cd cropeye-ai
 ```
 
