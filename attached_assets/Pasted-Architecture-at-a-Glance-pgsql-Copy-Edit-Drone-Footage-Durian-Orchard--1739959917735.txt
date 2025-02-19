@@ -1,0 +1,76 @@
+Architecture at a Glance
+pgsql
+Copy
+Edit
+       Drone Footage (Durian Orchard)
+                +
+        [ NVIDIA Jetson ]
+                |
+                v
+    +----------------------+
+    |  On-Device Inference|
+    +----------------------+
+                |
+                v
+       [ Real-Time Alerts ] 
+                |
+                v
+  [ Local Storage / User Dashboard ]
+Drone Flight: An autonomous or piloted drone covers the orchard.
+NVIDIA Jetson: Receives the video feed, runs object detection or segmentation to identify weeds, diseases, or dry patches.
+Alerts/Output: Live bounding boxes or segmented areas indicate where urgent action is needed (e.g., spraying fungicide).
+Local Dashboard: Results are stored locally or relayed to a farmer’s mobile device for immediate insight, even without internet coverage.
+Getting Started
+Clone the Repository
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/smart-farming-drone-imaging.git
+cd smart-farming-drone-imaging
+Install Dependencies
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Default includes torch, torchvision, opencv-python, and ultralytics.
+For Jetson devices, install the Jetson-compatible versions of PyTorch and OpenCV, and optionally TensorRT if you want further optimization.
+Run a Demo (Locally or on Jetson)
+
+Streamlit Demo (if you have a GUI environment or if you’re on a laptop/desktop):
+bash
+Copy
+Edit
+streamlit run app.py
+Command-Line:
+bash
+Copy
+Edit
+python smart_farming.py --source mock_farm_video.mp4
+On Jetson, ensure you’ve installed the correct wheel files for PyTorch, TorchVision, etc., before running.
+Train or Fine-Tune
+
+Create a dataset of durian orchard images (label weeds, disease-affected leaves, or other anomalies).
+Fine-tune YOLO or a chosen model on your custom dataset:
+bash
+Copy
+Edit
+yolo train data=durian_farm.yaml model=yolov8n.pt epochs=50
+Convert or optimize for TensorRT:
+bash
+Copy
+Edit
+yolo export model=best.pt format=tensorrt
+Example Workflow on a Philippine Durian Farm
+Drone Pre-Flight: Ensure Jetson is powered, the detection model is loaded, and the battery is fully charged.
+Aerial Survey: Fly over the orchard in a grid pattern, capturing top-down views of durian trees.
+On-the-Fly Detection: NVIDIA Jetson processes each frame. If a suspicious patch is detected (e.g., leaf discoloration or a cluster of weeds), the location is flagged via GPS coordinates.
+Immediate Action: Farmers or farmworkers can be alerted in near real-time, applying fungicide to affected areas or removing weeds quickly.
+Data Review: After flight, a local or cloud-based dashboard aggregates results, building a historical record of orchard health over time.
+Contributing
+We invite developers, researchers, and farmers to collaborate:
+
+Fork and Create a Branch for your proposed changes.
+Submit a Pull Request detailing your improvements or bug fixes.
+Engage in Issues and Discussions to shape future features—like integrating thermal or multispectral sensors, improving label datasets, etc.
