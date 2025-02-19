@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropEye - Smart Farming Drone AI</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #43a047 0%, #1b5e20 100%);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #ff5252;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .feature-card {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #43a047;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🚁 CropEye</h1>
+            <h2>AI-Powered Drone Footage Analysis for Smart Farming</h2>
+            <a href="/streamlit" class="cta-button">Try the Web App</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🎯 Real-Time Detection</h3>
+                <p>Process aerial footage in-flight to detect early signs of leaf discoloration, fungal diseases, or weed encroachment.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔍 Edge Computing</h3>
+                <p>Reduce bandwidth and power consumption by running inference directly on NVIDIA Jetson-equipped drones.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Instant Analysis</h3>
+                <p>Upload your drone footage and get immediate insights with our web-based analysis tool.</p>
+            </div>
+        </div>
+
+        <h2>Why CropEye?</h2>
+        <ul>
+            <li>High-accuracy weed and disease detection</li>
+            <li>Real-time processing capabilities</li>
+            <li>Easy-to-use web interface</li>
+            <li>Built on proven YOLO technology</li>
+            <li>Open-source and customizable</li>
+        </ul>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <h3>Ready to analyze your drone footage?</h3>
+            <a href="/streamlit" class="cta-button">Launch Web App</a>
+        </div>
+    </div>
+</body>
+</html>
